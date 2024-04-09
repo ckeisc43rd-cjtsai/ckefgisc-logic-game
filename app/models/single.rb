@@ -1,2 +1,2 @@
-class Single < ApplicationRecord
+class Single < Game
 end

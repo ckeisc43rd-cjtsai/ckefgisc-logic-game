@@ -1,2 +1,2 @@
-class Match < ApplicationRecord
+class Match < Game
 end
