@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'update_roulettes'
     end
   end  # Defines the root path route ("/")
+  post 'slots/update_roulettes' => 'slots#update_roulettes', as: :update_roulettes
   resources :menus
   root "menus#index"
 end

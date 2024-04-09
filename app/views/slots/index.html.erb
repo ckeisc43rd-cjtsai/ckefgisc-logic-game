@@ -1,12 +1,19 @@
 <head>
     <title>Example</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
 </head>
-<h1>這是一個老虎雞</h1>
+<body>
+    <h1>這是一個老虎雞</h1>
 
-<div id="roulette", remote: true>
-    <%= @value %>
-</div>
+    <div id="roulette">
+        <%=@value%>
+    </div>
 
-<%= link_to "REROLL", slots_path , method: :post, remote:true%>
+    <%= link_to "REROLL", slots_path, remote: true, data: { type: :script } %>
+
+    <script>
+        $(document).on('ajax:success', function(event) {
+            $('#roulette').html(event.detail[2].responseText);
+        });
+    </script>
+</body>

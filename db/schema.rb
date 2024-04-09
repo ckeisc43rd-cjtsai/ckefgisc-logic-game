@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_09_013819) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_09_144749) do
   create_table "games", force: :cascade do |t|
     t.datetime "start_time"
     t.integer "duration"
@@ -42,8 +42,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_09_013819) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "username"
-    t.integer "balance"
-    t.integer "match"
+    t.integer "balance", default: 100
+    t.integer "match", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
