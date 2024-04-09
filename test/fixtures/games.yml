@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2024-04-09 08:58:22
+  duration: 1
+  bet: 1
+
+two:
+  start_time: 2024-04-09 08:58:22
+  duration: 1
+  bet: 1
