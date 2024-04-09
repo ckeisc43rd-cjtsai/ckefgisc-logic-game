@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_09_010658) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_09_013819) do
   create_table "games", force: :cascade do |t|
     t.datetime "start_time"
     t.integer "duration"
@@ -27,6 +27,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_09_010658) do
   create_table "singles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "slots", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "value"
   end
 
   create_table "users", force: :cascade do |t|
