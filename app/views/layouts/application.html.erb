@@ -2,33 +2,40 @@
 <html>
   <head>
     <title>CkefgiscLogicGame</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%=
+      javascript_include_tag 'application',
+                             'data-turbo-track': 'reload',
+                             type: 'module'
+    %>
   </head>
 
   <body>
-  <% if user_signed_in? %> 
-    <div>              
-      <h3><%=link_to "Logout", destroy_user_session_path , method: :post%></h3>
-    </div>
-    <div>              
-      <h3><%=link_to "Profile", edit_user_registration_path%></h3>
-    </div>
-    <div>              
-      <h3>balance:</h3> <h3 id="user_balance"><%=current_user.balance%></h3>
-    </div>
+    <% if user_signed_in? %>
+      <div>
+        <h3>
+          <%= link_to 'Logout', destroy_user_session_path, method: :post %>
+        </h3>
+      </div>
+      <div>
+        <h3><%= link_to 'Profile', edit_user_registration_path %></h3>
+      </div>
+      <div>
+        <h3>balance:</h3>
+        <h3 id="user_balance"><%= current_user.balance %></h3>
+      </div>
     <% else %>
-    <div>              
-      <h3><%=link_to "Login", new_user_session_path%></h3>
-    </div>
-    <div>      
-      <h3><%=link_to "SignUp", new_user_registration_path%></h3>
-    </div>
-    <% end %>        
+      <div>
+        <h3><%= link_to 'Login', new_user_session_path %></h3>
+      </div>
+      <div>
+        <h3><%= link_to 'SignUp', new_user_registration_path %></h3>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
