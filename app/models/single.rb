@@ -1,0 +1,2 @@
+class Single < Game
+end
