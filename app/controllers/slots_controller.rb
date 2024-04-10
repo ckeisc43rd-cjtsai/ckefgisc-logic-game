@@ -5,11 +5,6 @@ class SlotsController < ApplicationController
     def index
         $value = "XXX"
     end
-
-
-    def show
-    
-    end
     
     def update_roulettes
         puts current_user.balance
