@@ -13,13 +13,13 @@
   <body>
   <% if user_signed_in? %> 
     <div>              
-      <h3><%=link_to "Logout", destroy_user_session_path %></h3>
+      <h3><%=link_to "Logout", destroy_user_session_path , method: :post%></h3>
     </div>
     <div>              
       <h3><%=link_to "Profile", edit_user_registration_path%></h3>
     </div>
     <div>              
-      <h3>balance: <%=current_user.balance%></h3>
+      <h3>balance:</h3> <h3 id="user_balance"><%=current_user.balance%></h3>
     </div>
     <% else %>
     <div>              
