@@ -9,28 +9,20 @@
         <%=$value%>
     </div>
 
-    <!--%= button_to "REROLL", spin_path, remote: true, data: { type: :script } %-->
-<!-- Display the value you want to modify -->
+    <button id="modify-button">REROLL</button>
 
-
-<!-- Button to trigger the AJAX request -->
-<button id="modify-button">Modify Value</button>
-
-<!-- JavaScript to handle the AJAX request -->
-<script>
-  document.getElementById('modify-button').addEventListener('click', function() {
-    // Make an AJAX request to the controller action
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/slots/update_roulettes', true);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        // Update the value in the view with the response from the controller
-                var response = JSON.parse(xhr.responseText);
-        document.getElementById('roulette').innerText = response.value;
-        document.getElementById('user_balance').innerText = response.balance;
-      }
-    };
-    xhr.send();
-  });
-</script>
+    <script>
+    document.getElementById('modify-button').addEventListener('click', function() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/slots/update_roulettes', true);
+        xhr.onload = function() {
+        if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+            document.getElementById('roulette').innerText = response.value;
+            document.getElementById('user_balance').innerText = response.balance;
+        }
+        };
+        xhr.send();
+    });
+    </script>
 </body>

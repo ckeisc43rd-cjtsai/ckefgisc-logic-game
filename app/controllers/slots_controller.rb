@@ -3,29 +3,7 @@ class SlotsController < ApplicationController
 
     $value = "xxx"
     def index
-        $value = "XXX"#@value?@value:"xxx"
-=begin
-        respond_to do |format|
-            format.js do
-                if @value == "777"
-                    current_user.balance += 100
-                    current_user.save
-                else
-                    current_user.balance -= 50
-                    current_user.save
-                end
-            end
-
-            format.html do 
-                if @value == "777"
-                    current_user.balance += 100
-                    current_user.save
-                else
-                    current_user.balance -= 50
-                    current_user.save
-                end
-        end
-=end
+        $value = "XXX"
     end
 
 
@@ -44,12 +22,5 @@ class SlotsController < ApplicationController
             current_user.save
         end
         render json: {value: $value, balance: current_user.balance}
-    end
-    def action
-        # Modify the value as needed
-        @valu = "Modified Value"
-        
-        # Render the modified value as text
-        render plain: @valu
     end
 end
