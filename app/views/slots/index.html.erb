@@ -4,7 +4,12 @@
 </head>
 <body>
     <h1>這是一個老虎雞</h1>
-
+    bet:
+    <div id="bet">
+      <%=@slot_bet%>
+    </div>
+    <%= render partial: "form", locals: {user: @user}%>
+    results:
     <div id="roulette">
         <%=@value%>
     </div>
@@ -14,15 +19,18 @@
     <script>
     document.getElementById('modify-button').addEventListener('click', function() {
         var xhr = new XMLHttpRequest();
+        var numberInput = document.getElementById('number_input').value; // Fetch the number from the form input
         xhr.open('POST', '/slots/update_roulettes', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function() {
         if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
+            var response = JSON.parse(xhr.responseText);
             document.getElementById('roulette').innerText = response.value;
             document.getElementById('user_balance').innerText = response.balance;
+            document.getElementById('bet').innerText = response.slot_bet;
         }
         };
-        xhr.send();
+        xhr.send(JSON.stringify({ number_input: numberInput })); // Send the number with the request
     });
     </script>
 </body>

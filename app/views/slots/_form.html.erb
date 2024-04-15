@@ -1,0 +1,4 @@
+<%= form_tag("/slots/update_roulettes", method: "post", remote: true) do %>
+  <label for="number_input">Enter a number:</label>
+  <%= text_field_tag :number_input, nil, id: "number_input" %>
+<% end %>
