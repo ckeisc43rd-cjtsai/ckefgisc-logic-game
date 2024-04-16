@@ -1,4 +1,4 @@
 <%= form_tag("/slots/update_roulettes", method: "post", remote: true) do %>
-  <label for="number_input">Enter a number:</label>
-  <%= text_field_tag :number_input, nil, id: "number_input" %>
+  <label for="number_input">Enter your bet:</label>
+  <%= text_field_tag :number_input, nil, id: "number_input", pattern: "[0-9]*", oninput: "this.value = this.value.replace(/[^0-9]/g, '')" %>
 <% end %>
