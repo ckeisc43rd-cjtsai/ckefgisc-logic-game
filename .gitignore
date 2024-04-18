@@ -8,7 +8,7 @@
 /.bundle
 
 # Ignore mac's trash.
-/.DS_Store
+**/.DS_Store
 
 # Ignore all environment files (except templates).
 /.env*
