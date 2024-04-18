@@ -1,1 +1,94 @@
-<h1>Greetings from cjtsai</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<link href="jquery-sakura.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+    <div class="bigcontainer">
+        <div class="content">
+            <div id="banner">
+                <div id="status">
+                    <h3 id="ranking" class="statustext"># Newbie</h3>
+                    <h3 id="money" class="statustext">$ 100</h3>
+                </div>
+
+                <button class="circular-button fa-solid fa-user-tie"></button>
+                <button class="circular-button fa-solid fa-gear"></button>
+            </div>
+            <button id="news"><i class="fa fa-bullhorn"></i>  公告</button>
+            <%= image_tag('ezs807.png', id: "cjtsai") %>
+
+
+            <div class="menu-buttons">
+                <button>匹配房間</button>
+                <button>房間列表</button>
+                <button>單人遊戲</button>
+                <div class="circular-buttons">
+                    <button class="circular-button fa-solid fa-ranking-star">
+                    </button>
+                    <button class="circular-button fa fa-history"></button>
+                    <button class="circular-button fa-solid fa-briefcase"></button>
+                    <button class="circular-button fa fa-shopping-cart"></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery-sakura.js"></script>
+<script>
+$(window).load(function () {
+    $('.content').sakura();
+});
+</script>
+<script>
+resizebigcontainer();
+
+    $(window).on('load resize', function() {
+        resizebigcontainer();
+    });
+
+    function resizebigcontainer() {
+        var bigcontainer = $('.bigcontainer');
+
+        var bigcontainerWidth = bigcontainer.width();
+        bigcontainer.width(window.innerWidth);
+        bigcontainer.height(window.innerHeight);
+        if(bigcontainer.height()<bigcontainer.width()*9/16){
+            bigcontainer.width(bigcontainer.height()*16/9);
+            $('.menu-buttons button').css("font-size","8vh")
+            $('#news').css("font-size","6vh")
+            $('.statustext').css("font-size","2.8vh")
+        }else if(bigcontainer.width()<bigcontainer.height()*16/9){
+            bigcontainer.height(bigcontainer.width()*9/16);
+            $('.menu-buttons button').css("font-size","4vw")
+            $('#news').css("font-size","3vw")
+            $('.statustext').css("font-size","1.5vw")
+        }
+        bigcontainer.css({
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+        });
+
+    }
+</script>
+<script>
+    (function(d) {
+      var config = {
+        kitId: 'cln2ywd',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+</script>
+<script src="https://kit.fontawesome.com/063d95bd47.js" crossorigin="anonymous"></script>
