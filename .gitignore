@@ -7,9 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore mac's trash.
-**/.DS_Store
-
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
