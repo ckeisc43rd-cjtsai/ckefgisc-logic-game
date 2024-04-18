@@ -1,41 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CkefgiscLogicGame</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>CkefgiscLogicGame</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-    <%=
-      javascript_include_tag 'application',
-                             'data-turbo-track': 'reload',
-                             type: 'module'
-    %>
-  </head>
+  <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+  <%=
+    javascript_include_tag 'application',
+                           'data-turbo-track': 'reload',
+                           type: 'module'
+  %>
+</head>
 
-  <body>
-    <% if user_signed_in? %>
-      <div>
-        <h3>
-          <%= link_to 'Logout', destroy_user_session_path, method: :post %>
-        </h3>
-      </div>
-      <div>
-        <h3><%= link_to 'Profile', edit_user_registration_path %></h3>
-      </div>
-      <div>
-        <h3>balance:</h3>
-        <h3 id="user_balance"><%= current_user.balance %></h3>
-      </div>
-    <% else %>
-      <div>
-        <h3><%= link_to 'Login', new_user_session_path %></h3>
-      </div>
-      <div>
-        <h3><%= link_to 'SignUp', new_user_registration_path %></h3>
-      </div>
-    <% end %>
+<body>
+  <div id="main-container">
     <%= yield %>
-  </body>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery-sakura.js"></script>
+  <script>
+    $(window).load(function () {
+        $('.content').sakura();
+    });
+  </script>
+  <script>
+    resizemenu_container();
+
+    $(window).on('load resize', function() {
+        resizemenu_container();
+    });
+
+    function resizemenu_container() {
+        var menu_container = $('#main-container');
+
+        var menu_containerWidth = menu_container.width();
+        menu_container.width(window.innerWidth);
+        menu_container.height(window.innerHeight);
+        if(menu_container.height() < menu_containerWidth * 9/16) {
+            menu_container.width(menu_container.height() * 16/9);
+            $('.menu-buttons button').css("font-size", "8vh");
+            $('#news').css("font-size", "6vh");
+            $('.statustext').css("font-size", "2.8vh");
+        } else if(menu_containerWidth < menu_container.height() * 16/9) {
+            menu_container.height(menu_containerWidth * 9/16);
+            $('.menu-buttons button').css("font-size", "4vw");
+            $('#news').css("font-size", "3vw");
+            $('.statustext').css("font-size", "1.5vw");
+        }
+        menu_container.css({
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+        });
+    }
+  </script>
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'cln2ywd',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+  <script src="https://kit.fontawesome.com/063d95bd47.js" crossorigin="anonymous"></script>
+</body>
 </html>
