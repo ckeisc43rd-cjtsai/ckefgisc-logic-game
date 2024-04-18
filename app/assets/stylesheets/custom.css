@@ -11,13 +11,13 @@ body, html {
     background-color: #282828; /* Placeholder color */
 }
 
-#bigcontainer {
+#menu-container {
     width: 100%;
     position: relative;
     overflow: hidden;
 }
 
-#bigcontainer {
+#menu-container {
     width: 100%;
     position: absolute;
     top: 50%;

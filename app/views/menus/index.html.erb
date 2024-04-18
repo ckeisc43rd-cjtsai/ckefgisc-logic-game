@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div id="bigcontainer">
+    <div id="menu-container">
         <div class="content">
             <div id="banner">
                 <div id="status">
@@ -50,30 +50,30 @@ $(window).load(function () {
 });
 </script>
 <script>
-resizebigcontainer();
+resizemenu-container();
 
     $(window).on('load resize', function() {
-        resizebigcontainer();
+        resizemenu-container();
     });
 
-    function resizebigcontainer() {
-        var bigcontainer = $('#bigcontainer');
+    function resizemenu-container() {
+        var menu-container = $('#menu-container');
 
-        var bigcontainerWidth = bigcontainer.width();
-        bigcontainer.width(window.innerWidth);
-        bigcontainer.height(window.innerHeight);
-        if(bigcontainer.height()<bigcontainer.width()*9/16){
-            bigcontainer.width(bigcontainer.height()*16/9);
+        var menu-containerWidth = menu-container.width();
+        menu-container.width(window.innerWidth);
+        menu-container.height(window.innerHeight);
+        if(menu-container.height()<menu-container.width()*9/16){
+            menu-container.width(menu-container.height()*16/9);
             $('.menu-buttons button').css("font-size","8vh")
             $('#news').css("font-size","6vh")
             $('.statustext').css("font-size","2.8vh")
-        }else if(bigcontainer.width()<bigcontainer.height()*16/9){
-            bigcontainer.height(bigcontainer.width()*9/16);
+        }else if(menu-container.width()<menu-container.height()*16/9){
+            menu-container.height(menu-container.width()*9/16);
             $('.menu-buttons button').css("font-size","4vw")
             $('#news').css("font-size","3vw")
             $('.statustext').css("font-size","1.5vw")
         }
-        bigcontainer.css({
+        menu-container.css({
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)'
