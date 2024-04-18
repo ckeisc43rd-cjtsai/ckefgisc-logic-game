@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="bigcontainer">
+    <div id="bigcontainer">
         <div class="content">
             <div id="banner">
                 <div id="status">
@@ -57,7 +57,7 @@ resizebigcontainer();
     });
 
     function resizebigcontainer() {
-        var bigcontainer = $('.bigcontainer');
+        var bigcontainer = $('#bigcontainer');
 
         var bigcontainerWidth = bigcontainer.width();
         bigcontainer.width(window.innerWidth);
