@@ -1,39 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CkefgiscLogicGame</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>CkefgiscLogicGame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
-  <%= javascript_include_tag 'main-container', 'data-turbo-track': 'reload', type: 'module' %>
-</head>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+    <%=
+      javascript_include_tag 'application',
+                             'data-turbo-track': 'reload',
+                             type: 'module'
+    %>
+    <%=
+      javascript_include_tag 'main-container',
+                             'data-turbo-track': 'reload',
+                             type: 'module'
+    %>
+  </head>
 
-<body>
-  <div id="main-container">
-    <%= yield %>
-  </div>
+  <body>
+    <div id="main-container">
+      <%= yield %>
+    </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="jquery-sakura.js"></script>
-  <script>
-    $(window).load(function () {
-        $('.content').sakura();
-    });
-  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="jquery-sakura.js"></script>
+    <script>
+      $(window).load(function () {
+        $(".content").sakura();
+      });
+    </script>
 
-  <script>
-    (function(d) {
-      var config = {
-        kitId: 'cln2ywd',
-        scriptTimeout: 3000,
-        async: true
-      },
-      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-    })(document);
-  </script>
-  <script src="https://kit.fontawesome.com/063d95bd47.js" crossorigin="anonymous"></script>
-</body>
+    <!--
+    Code for adobe's font -- Start
+    -->
+    <script> 
+      (function (d) {
+        var config = {
+            kitId: "cln2ywd",
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className =
+              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+    <!--
+    Code for adobe's font -- End
+    -->
+    <script
+      src="https://kit.fontawesome.com/063d95bd47.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
